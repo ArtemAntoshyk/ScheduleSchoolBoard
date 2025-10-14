@@ -1,4 +1,4 @@
-package devtitans.antoshchuk.scheduleschoolboard.models;
+package devtitans.antoshchuk.scheduleschoolboard.database.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,14 +10,14 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "homework")
-public class Homework {
+@Table(name = "subject")
+public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "summary", nullable = false, length = 255)
-    private String summary;
+    @Column(name = "name", nullable = false, length = 255)
+    private String name;
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
@@ -30,12 +30,12 @@ public class Homework {
         this.id = id;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getName() {
+        return name;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -50,8 +50,8 @@ public class Homework {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Homework homework = (Homework) o;
-        return Objects.equals(id, homework.id);
+        Subject subject = (Subject) o;
+        return Objects.equals(id, subject.id);
     }
 
     @Override

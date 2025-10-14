@@ -1,4 +1,4 @@
-package devtitans.antoshchuk.scheduleschoolboard.models;
+package devtitans.antoshchuk.scheduleschoolboard.database.models;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

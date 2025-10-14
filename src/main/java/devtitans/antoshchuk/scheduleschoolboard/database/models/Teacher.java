@@ -1,4 +1,4 @@
-package devtitans.antoshchuk.scheduleschoolboard.models;
+package devtitans.antoshchuk.scheduleschoolboard.database.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,14 +14,14 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "teacher")
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "balance", precision = 10, scale = 2)
-    private BigDecimal balance;
+    @Column(name = "rating", precision = 3, scale = 2)
+    private BigDecimal rating;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -35,12 +35,12 @@ public class Student {
         this.id = id;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
+    public BigDecimal getRating() {
+        return rating;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public void setRating(BigDecimal rating) {
+        this.rating = rating;
     }
 
     public User getUser() {
@@ -55,8 +55,8 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(id, student.id);
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(id, teacher.id);
     }
 
     @Override

@@ -1,6 +1,5 @@
-package devtitans.antoshchuk.scheduleschoolboard.models;
+package devtitans.antoshchuk.scheduleschoolboard.database.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,18 +9,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name = "teacher")
-public class Teacher {
+@Table(name = "admin")
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "rating", precision = 3, scale = 2)
-    private BigDecimal rating;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -33,14 +28,6 @@ public class Teacher {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public BigDecimal getRating() {
-        return rating;
-    }
-
-    public void setRating(BigDecimal rating) {
-        this.rating = rating;
     }
 
     public User getUser() {
@@ -55,8 +42,8 @@ public class Teacher {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Teacher teacher = (Teacher) o;
-        return Objects.equals(id, teacher.id);
+        Admin admin = (Admin) o;
+        return Objects.equals(id, admin.id);
     }
 
     @Override

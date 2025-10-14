@@ -1,9 +1,10 @@
-package devtitans.antoshchuk.scheduleschoolboard.models;
+package devtitans.antoshchuk.scheduleschoolboard.database.models;
 
 public enum UserType {
     STUDENT("student"),
     TEACHER("teacher"),
     ADMIN("admin");
+
 
     private final String value;
 
