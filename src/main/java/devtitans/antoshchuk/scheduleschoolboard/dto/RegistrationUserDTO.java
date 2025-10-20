@@ -16,4 +16,5 @@ public class RegistrationUserDTO {
     private String password;
     private String userType;
     private String phoneNumber;
+
 }
